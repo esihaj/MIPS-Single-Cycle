@@ -1,0 +1,23 @@
+{E:/Doc/University/Year 2/Computer Organization/CA/2/DataMemory.v} {1 {vlog -work work {E:\Doc\University\Year 2\Computer Organization\CA\2\DataMemory.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module DataMem
+
+Top level modules:
+	DataMem
+
+} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/InstructionMemory.v} {1 {vlog -work work {E:\Doc\University\Year 2\Computer Organization\CA\2\InstructionMemory.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module InstMem
+-- Compiling module test_inst_memory
+
+Top level modules:
+	test_inst_memory
+
+} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/RegisterFile.v} {1 {vlog -work work {E:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module RegFile
+
+Top level modules:
+	RegFile
+
+} {} {}}

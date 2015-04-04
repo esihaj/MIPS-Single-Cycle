@@ -1,0 +1,122 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Altera\13.0sp1
+vDataMem
+Z1 !s100 eK=5M0XKf_U<db56Of3<Q1
+Z2 IFQJN37QHX2b8bV`AY5<;H1
+Z3 V:Q>bG:XNLgSN?H=C?m[7;1
+Z4 dE:\Doc\University\Year 2\Computer Organization\CA\2
+Z5 w1428146545
+Z6 8E:\Doc\University\Year 2\Computer Organization\CA\2\DataMemory.v
+Z7 FE:\Doc\University\Year 2\Computer Organization\CA\2\DataMemory.v
+L0 1
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -reportprogress|300|-work|work|E:\Doc\University\Year 2\Computer Organization\CA\2\DataMemory.v|
+Z10 o-work work -O0
+Z11 n@data@mem
+!i10b 1
+!s85 0
+Z12 !s108 1428146629.051000
+Z13 !s107 E:\Doc\University\Year 2\Computer Organization\CA\2\DataMemory.v|
+!s101 -O0
+vInstMem
+Z14 !s100 F5O_BC[9Pg3^@n4PgGRQ53
+Z15 I4<96J[14U8ekhlcdiSC1E2
+Z16 V`FiP`mR<zzSToX^MMcP8c2
+R4
+Z17 w1428146535
+Z18 8E:\Doc\University\Year 2\Computer Organization\CA\2\InstructionMemory.v
+Z19 FE:\Doc\University\Year 2\Computer Organization\CA\2\InstructionMemory.v
+L0 1
+R8
+r1
+31
+Z20 !s108 1428146628.816000
+Z21 !s107 E:\Doc\University\Year 2\Computer Organization\CA\2\InstructionMemory.v|
+Z22 !s90 -reportprogress|300|-work|work|E:\Doc\University\Year 2\Computer Organization\CA\2\InstructionMemory.v|
+R10
+Z23 n@inst@mem
+!i10b 1
+!s85 0
+!s101 -O0
+vRegFile
+!i10b 1
+Z24 !s100 WMUe=6`X_icXS]eBT=eff2
+Z25 ISV0o]OfXL]dG_eJSDVH>N3
+Z26 VN=kA4YDdcH:Y[HZz44Dl21
+R4
+Z27 w1428146554
+Z28 8E:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v
+Z29 FE:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v
+L0 1
+R8
+r1
+!s85 0
+31
+!s108 1428146629.381000
+!s107 E:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v|
+Z30 !s90 -reportprogress|300|-work|work|E:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v|
+!s101 -O0
+R10
+Z31 n@reg@file
+vtest_data_memory
+Z32 IkZXUTWf^6B592TA`B7e<I0
+Z33 V1RDDic@3kfo:4UoZZLCcW0
+R4
+Z34 w1428146228
+R6
+R7
+L0 18
+R8
+r1
+31
+Z35 !s108 1428146236.473000
+R13
+R9
+R10
+Z36 !s100 0ST[X<m4:ko1zH0DTIk:D2
+!i10b 1
+!s85 0
+!s101 -O0
+vtest_inst_memory
+Z37 !s100 c@8AgUB3LOBfl1BdmgMGS3
+Z38 ID:cH8falfO^OPzdgZn:?P0
+Z39 Vb4_]cBVRzEL7nPi@gazl72
+R4
+R17
+R18
+R19
+L0 11
+R8
+r1
+31
+R20
+R21
+R22
+R10
+!i10b 1
+!s85 0
+!s101 -O0
+vtest_reg_file
+Z40 !s100 L>ZVLSk`V<4J4Qd>`KBX:2
+Z41 IZbdZSozRm9LS]BCL0O;^;3
+Z42 VRXPa:n0eim@ZP6`@T4K:<2
+R4
+Z43 w1428144441
+R28
+R29
+L0 19
+R8
+r1
+31
+Z44 !s108 1428146236.835000
+Z45 !s107 E:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v|
+R30
+R10
+!i10b 1
+!s85 0
+!s101 -O0
