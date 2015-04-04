@@ -18,10 +18,10 @@ r1
 Z9 !s90 -reportprogress|300|-work|work|E:\Doc\University\Year 2\Computer Organization\CA\2\DataMemory.v|
 Z10 o-work work -O0
 Z11 n@data@mem
+Z12 !s108 1428148704.763000
+Z13 !s107 E:\Doc\University\Year 2\Computer Organization\CA\2\DataMemory.v|
 !i10b 1
 !s85 0
-Z12 !s108 1428146629.051000
-Z13 !s107 E:\Doc\University\Year 2\Computer Organization\CA\2\DataMemory.v|
 !s101 -O0
 vInstMem
 Z14 !s100 F5O_BC[9Pg3^@n4PgGRQ53
@@ -35,7 +35,7 @@ L0 1
 R8
 r1
 31
-Z20 !s108 1428146628.816000
+Z20 !s108 1428148704.476000
 Z21 !s107 E:\Doc\University\Year 2\Computer Organization\CA\2\InstructionMemory.v|
 Z22 !s90 -reportprogress|300|-work|work|E:\Doc\University\Year 2\Computer Organization\CA\2\InstructionMemory.v|
 R10
@@ -57,35 +57,54 @@ R8
 r1
 !s85 0
 31
-!s108 1428146629.381000
+!s108 1428148705.360000
 !s107 E:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v|
 Z30 !s90 -reportprogress|300|-work|work|E:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v|
 !s101 -O0
 R10
 Z31 n@reg@file
-vtest_data_memory
-Z32 IkZXUTWf^6B592TA`B7e<I0
-Z33 V1RDDic@3kfo:4UoZZLCcW0
+vstack
+Z32 !s100 1i_I<AG8OnFWeaO0YF2=Q1
+Z33 I=`2C:5FIY_@@]:jWo:6ei2
+Z34 V4XMLDZ@Nc0C07??JY[QRR3
 R4
-Z34 w1428146228
+Z35 w1428148702
+Z36 8E:\Doc\University\Year 2\Computer Organization\CA\2\Stack.v
+Z37 FE:\Doc\University\Year 2\Computer Organization\CA\2\Stack.v
+L0 1
+R8
+r1
+31
+Z38 !s108 1428148704.989000
+Z39 !s107 E:\Doc\University\Year 2\Computer Organization\CA\2\Stack.v|
+Z40 !s90 -reportprogress|300|-work|work|E:\Doc\University\Year 2\Computer Organization\CA\2\Stack.v|
+R10
+!i10b 1
+!s85 0
+!s101 -O0
+vtest_data_memory
+Z41 IkZXUTWf^6B592TA`B7e<I0
+Z42 V1RDDic@3kfo:4UoZZLCcW0
+R4
+Z43 w1428146228
 R6
 R7
 L0 18
 R8
 r1
 31
-Z35 !s108 1428146236.473000
+Z44 !s108 1428146236.473000
 R13
 R9
 R10
-Z36 !s100 0ST[X<m4:ko1zH0DTIk:D2
+Z45 !s100 0ST[X<m4:ko1zH0DTIk:D2
 !i10b 1
 !s85 0
 !s101 -O0
 vtest_inst_memory
-Z37 !s100 c@8AgUB3LOBfl1BdmgMGS3
-Z38 ID:cH8falfO^OPzdgZn:?P0
-Z39 Vb4_]cBVRzEL7nPi@gazl72
+Z46 !s100 c@8AgUB3LOBfl1BdmgMGS3
+Z47 ID:cH8falfO^OPzdgZn:?P0
+Z48 Vb4_]cBVRzEL7nPi@gazl72
 R4
 R17
 R18
@@ -102,21 +121,40 @@ R10
 !s85 0
 !s101 -O0
 vtest_reg_file
-Z40 !s100 L>ZVLSk`V<4J4Qd>`KBX:2
-Z41 IZbdZSozRm9LS]BCL0O;^;3
-Z42 VRXPa:n0eim@ZP6`@T4K:<2
+Z49 !s100 L>ZVLSk`V<4J4Qd>`KBX:2
+Z50 IZbdZSozRm9LS]BCL0O;^;3
+Z51 VRXPa:n0eim@ZP6`@T4K:<2
 R4
-Z43 w1428144441
+Z52 w1428144441
 R28
 R29
 L0 19
 R8
 r1
 31
-Z44 !s108 1428146236.835000
-Z45 !s107 E:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v|
+Z53 !s108 1428146236.835000
+Z54 !s107 E:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v|
 R30
 R10
 !i10b 1
+!s85 0
+!s101 -O0
+vtest_stack
+Z55 Iec3RV_LI5nOSlO2=<C4>I2
+Z56 VnTg6j;22M8j68^Xe2;2[71
+R4
+R35
+R36
+R37
+L0 18
+R8
+r1
+31
+R38
+R39
+R40
+R10
+!i10b 1
+Z57 !s100 UDUO;WC@ONH8Y4IM0`LC:1
 !s85 0
 !s101 -O0
