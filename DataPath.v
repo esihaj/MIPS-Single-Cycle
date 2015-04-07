@@ -49,61 +49,64 @@ module DataPath(input clk, reset, mem_write, reg_write, push, pop, alu_use_carry
 	RegFile reg_file (clk, reg_write, reg_addr_A, reg_addr_B, reg_addr_write, reg_write_data, reg_data_A, reg_data_B);
 	Stack 	stack(clk, push,pop, stack_in, stack_out);
 	ALU 	alu(alu_op , alu_A, alu_B, alu_cin, alu_out, alu_co, alu_z); 
-	BarrelShifter bs(data, bitcount,  dir, sh_roBar, shift_out, shift_c, shift_z);
+	BarrelShifter bs(shift_data, bitcount,  dir, sh_roBar, shift_out, shift_c, shift_z);
 	
 	
 
-	always @(instruction) begin //calculate the new pc
+	always @(instruction, mem_out_data, reg_data_A, reg_data_B, stack_out, alu_out, alu_co, alu_z, shift_out, shift_c, shift_z ) begin //calculate the new pc
 		//PC
 		case(pc_mux)
-			2'b00: next_pc = pc + 1;
-			2'b01: next_pc = pc + 1 + instruction[7:0];
-			2'b10: next_pc = instruction[11:0];
-			2'b11: next_pc = stack_out;
+			2'b00: next_pc <= pc + 1;
+			2'b01: next_pc <= pc + 1 + instruction[7:0];
+			2'b10: next_pc <= instruction[11:0];
+			2'b11: next_pc <= stack_out;
 		endcase
 		
 		//Stack
-		stack_in = pc + 1;
+		stack_in <= pc + 1;
 		
 		//ALU
-		alu_A = reg_data_A;
+		$display("ALU time %t", $time);
+		//$display("reg A %b", reg_data_A);		
+		alu_A <= reg_data_A;
+		//$display("alu A %b", alu_A);
 		case(alu_in_mux)
-			1'b0: alu_B = reg_data_B;
-			1'b1: alu_B = instruction[7:0];
+			1'b0: alu_B <= reg_data_B;
+			1'b1:begin $display("alu B %b", instruction[7:0]); alu_B <= instruction[7:0]; end
 		endcase 
-		alu_cin = alu_use_carry ? C : 1'b0;
+		alu_cin <= alu_use_carry ? C : 1'b0;
 		
 		//Data Memory
-		mem_addr = alu_out;
-		mem_write_data = reg_data_B;
+		mem_addr <= alu_out;
+		mem_write_data <= reg_data_B;
 		
 		//Shifter
-		bitcount = instruction[8:5];
-		sh_roBar = instruction[15];
-		dir = instruction[14];
-		shift_data = reg_data_A;
+		bitcount <= instruction[8:5];
+		sh_roBar <= instruction[15];
+		dir <= instruction[14];
+		shift_data <= reg_data_A;
 		
 		//RegFile
-		reg_addr_A = instruction[10:8];
+		reg_addr_A <= instruction[10:8];
 		case(reg_B_mux)
-			1'b0: reg_addr_B = instruction[7:5];
-			1'b1: reg_addr_B = instruction[13:11];
+			1'b0: reg_addr_B <= instruction[7:5];
+			1'b1: reg_addr_B <= instruction[13:11];
 		endcase
-		reg_addr_write = instruction[13:11];
+		reg_addr_write <= instruction[13:11];
 		case(reg_write_mux)
-			2'b00: reg_write_data = alu_out;
-			2'b01: reg_write_data = shift_out;
-			2'b10: reg_write_data = mem_out_data;
+			2'b00: reg_write_data <= alu_out;
+			2'b01: reg_write_data <= shift_out;
+			2'b10: reg_write_data <= mem_out_data;
 		endcase
 		
 		//C & Z FlipFlop
 		case(select_c)
-			1'b0: next_C = alu_co;
-			1'b1: next_C = shift_c;
+			1'b0: next_C <= alu_co;
+			1'b1: next_C <= shift_c;
 		endcase
 		case(select_z)
-			1'b0: next_Z = alu_z;
-			1'b1: next_Z = shift_z;
+			1'b0: next_Z <= alu_z;
+			1'b1: next_Z <= shift_z;
 		endcase
 	end
 	
@@ -116,7 +119,33 @@ module DataPath(input clk, reset, mem_write, reg_write, push, pop, alu_use_carry
 				Z = next_Z;
 		end
 		else begin
-			{pc,C,Z} = 0;
+			{pc,C,Z} = 35'b0;
 		end
 	end 
+endmodule
+
+module test_data_path();
+	
+	reg clk = 1'b0, reset, mem_write, reg_write, push, pop, alu_use_carry;
+	reg [2:0] alu_op;
+	reg [1:0] pc_mux;
+	reg reg_write_mux, alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z;
+	
+	DataPath dp(clk, reset, mem_write, reg_write, push, pop, alu_use_carry, alu_op, pc_mux, reg_write_mux, alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z);
+	
+	
+	
+	initial repeat(10) #5 clk = ~clk;
+	
+	initial begin
+		{reset, mem_write, reg_write, push, pop, alu_use_carry, alu_op, pc_mux, reg_write_mux, alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z} = 0;
+		reset = 1'b1;
+		{write_c, write_z} = 2'b11;
+		reg_write = 1'b1;
+		alu_in_mux = 1'b1;
+		#10 reset = 1'b0;
+		#14 alu_in_mux = 1'b0;
+		#30 $stop;
+	end
+
 endmodule
