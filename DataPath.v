@@ -1,4 +1,5 @@
-module DataPath(input clk, reset, mem_write, reg_write, push, pop, alu_use_carry, input [2:0] alu_op, input [1:0] pc_mux, input reg_write_mux, alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z);
+//select_(c,z) : mux to select which input connects to C/Z FF
+module DataPath(input clk, reset, mem_write, reg_write, push, pop, alu_use_carry, input [2:0] alu_op, input [1:0] pc_mux, reg_write_mux, input alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z, output reg C, Z);
 //PC
 //Instruction memory
 //register file
@@ -9,8 +10,7 @@ module DataPath(input clk, reset, mem_write, reg_write, push, pop, alu_use_carry
 	
 	//wires and registers
 	//C & Z FlipFlop
-	reg [7:0] C,Z;
-	reg [7:0] next_C,next_Z;
+	reg next_C,next_Z;
 	//pc & inst Memory
 	reg  [11:0] pc, next_pc;
 	wire [18:0] instruction;
@@ -119,7 +119,7 @@ module DataPath(input clk, reset, mem_write, reg_write, push, pop, alu_use_carry
 				Z = next_Z;
 		end
 		else begin
-			{pc,C,Z} = 35'b0;
+			{pc,C,Z} = 0;
 		end
 	end 
 endmodule
@@ -128,10 +128,10 @@ module test_data_path();
 	
 	reg clk = 1'b0, reset, mem_write, reg_write, push, pop, alu_use_carry;
 	reg [2:0] alu_op;
-	reg [1:0] pc_mux;
-	reg reg_write_mux, alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z;
-	
-	DataPath dp(clk, reset, mem_write, reg_write, push, pop, alu_use_carry, alu_op, pc_mux, reg_write_mux, alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z);
+	reg [1:0] pc_mux, reg_write_mux;
+	reg alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z;
+	wire C, Z;
+	DataPath dp(clk, reset, mem_write, reg_write, push, pop, alu_use_carry, alu_op, pc_mux, reg_write_mux, alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z, C, Z);
 	
 	
 	
