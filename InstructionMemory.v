@@ -1,7 +1,7 @@
 module InstMem(input [11:0] addr, output reg [18:0] out_data);
 
 	reg [18:0] registers [4095:0];
-	initial $readmemb("inst.bin", registers);
+	initial $readmemb("prgm2.bin", registers);
 	
 	always@(addr) begin
 		out_data = registers[addr];

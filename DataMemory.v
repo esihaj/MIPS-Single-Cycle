@@ -2,7 +2,7 @@ module DataMem(input clk, mem_write, input [7:0] addr ,
 						input [7:0] write_data, output reg [7:0] out_data);
 
 	reg [7:0] registers [255:0];
-	initial $readmemb("mem.bin", registers);
+	initial $readmemb("mem2.bin", registers);
 	
 	always@(addr) begin
 		out_data = registers[addr];

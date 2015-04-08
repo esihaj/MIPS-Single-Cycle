@@ -2,11 +2,9 @@ module ALU (input [2:0] fn, input [7:0] op_A, op_B,input cin, output reg [7:0] o
 
 	always@(*)begin
 		{out,co,z} = 0;
-		case (fn) 
-			3'b000 : {co,out} = cin + op_A + op_B ;
-			3'b001 : {co,out} = cin + op_A + op_B ;
-			3'b010 : {co,out} = cin + op_A - op_B ;
-			3'b011 : {co,out} = cin + op_A - op_B ;
+		casex (fn) 
+			3'b00? : {co,out} = cin + op_A + op_B ;
+			3'b01? : {co,out} = op_A - op_B - cin;
 			3'b100 : out = op_A & op_B;
 			3'b101 : out = op_A | op_B;
 			3'b110 : out = op_A ^ op_B;

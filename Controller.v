@@ -1,16 +1,18 @@
 //comment help :  [/ASM Command]
 //@TODO change = to <= (non-blocking)
 //select_(c,z) : mux to select which input connects to C/Z FF
-module Controller(input clk, reset, C, Z, input [18:0] instruction, output reg mem_write, reg_write, push, pop, alu_use_carry, output reg [2:0] alu_op, output reg [1:0] pc_mux, reg_write_mux, output reg alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z);
+module Controller(input clk, reset, C, Z, input [18:0] instruction, output reg mem_write, reg_write, push, pop, output alu_use_carry, output [2:0] alu_op, output reg [1:0] pc_mux, reg_write_mux, output reg alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z);
 	//ALU
-	ALUController alc_cntrl(instruction, alu_use_carry, alu_op);
+	ALUController alu_cntrl(instruction, alu_use_carry, alu_op);//in ha ro wire gereftam ke rahat betoonam be in yeki module pas bedameshoon
 	//Shifter
 	wire do_branch;
 	ShifterController shift_cntrl(instruction, C, Z, do_branch);
 	//Others
 	always@(instruction, C,Z, do_branch) begin
-		{reg_write_mux, alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z} = 0;
-		case(instruction[18:16])
+		$display("instruction T-%t %b", $time, instruction);
+		{pc_mux, reg_write_mux, alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z} = 0;
+		{mem_write, reg_write, push, pop} = 0;
+		casex(instruction[18:16])
 			3'b100:	begin //memory
 				mem_write = instruction[14];//on [/STM]
 				reg_write = ~instruction[14];//on [/LDM]
@@ -41,7 +43,7 @@ module Controller(input clk, reset, C, Z, input [18:0] instruction, output reg m
 			pop = 1'b1;
 		
 		//PC
-		case(instruction[18:14])
+		casex(instruction[18:14])
 			5'b101??:begin //Branch
 				if(do_branch)//if Branch controller confirms a branch operation
 					pc_mux = 2'b01;
@@ -66,7 +68,7 @@ module ALUController(input [18:0] instruction,output reg alu_use_carry, output r
 	always@(instruction) begin
 		{alu_use_carry, alu_op} = 0;
 		//? == don't care
-		case(instruction[18:16])//operation
+		casex(instruction[18:16])//operation
 			3'b00?:begin //Arithmetic
 				alu_op = instruction[16:14];
 				alu_use_carry  =instruction[14];
@@ -81,4 +83,27 @@ module ALUController(input [18:0] instruction,output reg alu_use_carry, output r
 			end
 		endcase
 	end
+endmodule
+
+module test_controller();
+	reg C, Z, clk = 1'b0, reset = 1'b0;
+	reg [18:0] instruction;
+	wire mem_write, reg_write, push, pop, alu_use_carry;
+	wire [2:0] alu_op;
+	wire [1:0] pc_mux, reg_write_mux;
+	wire alu_in_mux,reg_B_mux, select_c, select_z, write_c, write_z;
+	
+	Controller cntrl(clk, reset, C, Z, instruction,
+					mem_write, reg_write, push, pop, alu_use_carry,
+					alu_op, pc_mux, 
+					reg_write_mux, alu_in_mux,reg_B_mux,
+					select_c, select_z, write_c, write_z);
+	initial repeat(10) #5 clk = ~clk;
+	initial begin
+		instruction = 19'b0100000100000001010; C = 1'b0; Z = 1'b0;
+		#10 instruction = 19'b0100001000000000101; 
+		#10 instruction = 19'b0000001100101000000;
+		#10 $stop;
+	end
+	
 endmodule

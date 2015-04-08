@@ -1,11 +1,19 @@
-{E:/Doc/University/Year 2/Computer Organization/CA/2/DataMemory.v} {1 {vlog -work work {E:\Doc\University\Year 2\Computer Organization\CA\2\DataMemory.v}
+{E:/Doc/University/Year 2/Computer Organization/CA/2/DataPath.v} {1 {vlog -work work {E:/Doc/University/Year 2/Computer Organization/CA/2/DataPath.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module DataPath
+-- Compiling module test_data_path
+
+Top level modules:
+	test_data_path
+
+} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/DataMemory.v} {1 {vlog -work work {E:/Doc/University/Year 2/Computer Organization/CA/2/DataMemory.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module DataMem
 
 Top level modules:
 	DataMem
 
-} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/InstructionMemory.v} {1 {vlog -work work {E:\Doc\University\Year 2\Computer Organization\CA\2\InstructionMemory.v}
+} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/InstructionMemory.v} {1 {vlog -work work {E:/Doc/University/Year 2/Computer Organization/CA/2/InstructionMemory.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module InstMem
 -- Compiling module test_inst_memory
@@ -13,11 +21,45 @@ Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 Top level modules:
 	test_inst_memory
 
-} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/RegisterFile.v} {1 {vlog -work work {E:\Doc\University\Year 2\Computer Organization\CA\2\RegisterFile.v}
+} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/Controller.v} {1 {vlog -work work {E:\Doc\University\Year 2\Computer Organization\CA\2\Controller.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Controller
+-- Compiling module ShifterController
+-- Compiling module ALUController
+-- Compiling module test_controller
+
+Top level modules:
+	test_controller
+
+} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/RegisterFile.v} {1 {vlog -work work {E:/Doc/University/Year 2/Computer Organization/CA/2/RegisterFile.v}
 Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 -- Compiling module RegFile
 
 Top level modules:
 	RegFile
+
+} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/BarrelShifter.v} {1 {vlog -work work {E:/Doc/University/Year 2/Computer Organization/CA/2/BarrelShifter.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module BarrelShifter
+-- Compiling module test_shift
+
+Top level modules:
+	test_shift
+
+} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/ALU.v} {1 {vlog -work work {E:/Doc/University/Year 2/Computer Organization/CA/2/ALU.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module ALU
+-- Compiling module test_ALU
+
+Top level modules:
+	test_ALU
+
+} {} {}} {E:/Doc/University/Year 2/Computer Organization/CA/2/Stack.v} {1 {vlog -work work {E:/Doc/University/Year 2/Computer Organization/CA/2/Stack.v}
+Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+-- Compiling module Stack
+-- Compiling module test_stack
+
+Top level modules:
+	test_stack
 
 } {} {}}
