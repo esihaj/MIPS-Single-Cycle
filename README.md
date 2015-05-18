@@ -1,5 +1,5 @@
 # MIPS-Single-Cycle
-Computer Assignment 2 of UT computer organization course.
+Computer Assignment 2 of UT computer organization course. take a look at CA#2.pdf for more information.
 <p>
 This is a single cycle MIPS proccessor which supports the following <strong>instructions</strong>:
 </br>R-Type(Both Reg-Reg, and Reg-immediate): ADD, ADDC (carry) , SUB, SUBC (carry), AND, OR, XOR, MASK
